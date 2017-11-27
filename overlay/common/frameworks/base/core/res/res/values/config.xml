@@ -63,4 +63,10 @@
     <bool name="config_supportsMicToggle">true</bool>
     <!-- Whether this device is supporting the camera toggle -->
     <bool name="config_supportsCamToggle">true</bool>
+
+    <!--  Whether Multiuser UI should be shown -->
+    <bool name="config_enableMultiUserUI">true</bool>
+
+    <!--  Maximum number of supported users -->
+    <integer name="config_multiuserMaximumUsers">4</integer>
 </resources>
