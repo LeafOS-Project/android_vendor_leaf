@@ -36,6 +36,10 @@ PRODUCT_PACKAGES += \
     ThemePicker \
     DefaultThemesStub
 
+# Dex preopt
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    SystemUI
+
 # Google apps
 ifeq ($(WITH_GMS), true)
 $(call inherit-product, vendor/gapps/gms.mk)
