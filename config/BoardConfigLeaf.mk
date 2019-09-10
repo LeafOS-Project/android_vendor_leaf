@@ -13,6 +13,7 @@
 # limitations under the License.
 
 include vendor/leaf/config/BoardConfigKernel.mk
+include vendor/leaf/config/BoardConfigSoong.mk
 include vendor/leaf/config/BoardConfigVersion.mk
 -include vendor/extra/BoardConfigExtra.mk
 
