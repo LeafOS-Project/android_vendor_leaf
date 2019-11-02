@@ -22,6 +22,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/leaf/etc/init/init.adblock.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.adblock.rc
 
+# ADB root
+PRODUCT_PACKAGES += \
+    adb_root
+
 # Apps
 PRODUCT_PACKAGES += \
     Etar \
