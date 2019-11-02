@@ -14,6 +14,10 @@
 
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
+# ADB root
+PRODUCT_PACKAGES += \
+    adb_root
+
 # Apps
 PRODUCT_PACKAGES += \
     Etar \
