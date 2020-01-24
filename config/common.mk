@@ -36,6 +36,10 @@ $(call inherit-product-if-exists, vendor/lawnicons/overlay.mk)
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
     vendor/leaf/overlay/no-rro
 
+# Charger
+PRODUCT_PACKAGES += \
+    product_charger_res_images
+
 PRODUCT_PACKAGE_OVERLAYS += \
     vendor/leaf/overlay/common \
     vendor/leaf/overlay/no-rro
