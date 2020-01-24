@@ -24,6 +24,10 @@ PRODUCT_PACKAGES += \
     Bromite \
     BromiteWebView
 
+# Charger
+PRODUCT_PACKAGES += \
+    leaf_charger
+
 # Customization
 PRODUCT_PACKAGES += \
     LeafBackgrounds \
