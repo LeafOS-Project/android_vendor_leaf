@@ -77,6 +77,7 @@ endif
 # Leaf packages
 PRODUCT_PACKAGES += \
     LeafSetupWizard \
+    Seedvault \
     Updater
 
 # OTA
