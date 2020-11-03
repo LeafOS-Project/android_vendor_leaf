@@ -21,7 +21,8 @@ PRODUCT_PACKAGES += \
 
 # Customization
 PRODUCT_PACKAGES += \
-    ThemePicker \
+     ThemePicker \
+     DefaultThemesStub
 
 # Overlays
 PRODUCT_PACKAGE_OVERLAYS += \
