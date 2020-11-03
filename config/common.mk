@@ -19,6 +19,10 @@ PRODUCT_PACKAGES += \
     BromiteWebView \
     Jelly
 
+# Customization
+PRODUCT_PACKAGES += \
+    ThemePicker \
+
 # Overlays
 PRODUCT_PACKAGE_OVERLAYS += \
     vendor/leaf/overlay/common
