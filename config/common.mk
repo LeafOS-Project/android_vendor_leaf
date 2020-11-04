@@ -29,6 +29,10 @@ PRODUCT_PACKAGES += \
     leaf_charger \
     leaf_charger_vendor
 
+# Config
+PRODUCT_PACKAGES += \
+    SimpleDeviceConfig
+
 # Customization
 PRODUCT_PACKAGES += \
     LeafBackgrounds \
