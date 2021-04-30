@@ -13,3 +13,8 @@
 # limitations under the License.
 
 $(call inherit-product, vendor/leaf/config/common_full_phone.mk)
+
+# Force disable updating of APEXes when flatten APEX flag is enabled
+ifeq ($(OVERRIDE_TARGET_FLATTEN_APEX),true)
+PRODUCT_PRODUCT_PROPERTIES += ro.apex.updatable=false
+endif
