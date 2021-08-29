@@ -33,4 +33,12 @@
     <dimen name="system_app_widget_background_radius">14dp</dimen>
     <!-- System-provided radius for inner views on app widgets. The resolved value of this resource may change at runtime. -->
     <dimen name="system_app_widget_inner_radius">10dp</dimen>
+
+    <!-- Control the default night mode to use when there is no other mode override set.
+         One of the following values (see UiModeManager.java):
+             0 - MODE_NIGHT_AUTO
+             1 - MODE_NIGHT_NO
+             2 - MODE_NIGHT_YES
+    -->
+    <integer name="config_defaultNightMode">2</integer>
 </resources>
