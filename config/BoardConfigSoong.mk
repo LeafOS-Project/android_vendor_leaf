@@ -48,7 +48,8 @@ SOONG_CONFIG_leafGlobalVars += \
     target_health_charging_control_supports_bypass \
     target_health_charging_control_supports_deadline \
     target_health_charging_control_supports_toggle \
-    target_init_vendor_lib
+    target_init_vendor_lib \
+    target_surfaceflinger_udfps_lib
 
 SOONG_CONFIG_NAMESPACES += leafQcomVars
 SOONG_CONFIG_leafQcomVars += \
@@ -75,6 +76,7 @@ TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS ?= true
 TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_DEADLINE ?= false
 TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_TOGGLE ?= true
 TARGET_INIT_VENDOR_LIB ?= vendor_init
+TARGET_SURFACEFLINGER_UDFPS_LIB ?= surfaceflinger_udfps_lib
 
 # Soong value variables
 SOONG_CONFIG_leafGlobalVars_aapt_version_code := $(shell date -u +%Y%m%d)
@@ -86,6 +88,7 @@ SOONG_CONFIG_leafGlobalVars_target_health_charging_control_supports_bypass := $(
 SOONG_CONFIG_leafGlobalVars_target_health_charging_control_supports_deadline := $(TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_DEADLINE)
 SOONG_CONFIG_leafGlobalVars_target_health_charging_control_supports_toggle := $(TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_TOGGLE)
 SOONG_CONFIG_leafGlobalVars_target_init_vendor_lib := $(TARGET_INIT_VENDOR_LIB)
+SOONG_CONFIG_leafGlobalVars_target_surfaceflinger_udfps_lib := $(TARGET_SURFACEFLINGER_UDFPS_LIB)
 ifneq ($(filter $(QSSI_SUPPORTED_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
 SOONG_CONFIG_leafQcomVars_qcom_display_headers_namespace := vendor/qcom/opensource/commonsys-intf/display
 else
