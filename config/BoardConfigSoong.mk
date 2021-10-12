@@ -40,7 +40,8 @@ $(foreach v,$(EXPORT_TO_SOONG),$(eval $(call addVar,$(v))))
 
 SOONG_CONFIG_NAMESPACES += leafGlobalVars
 SOONG_CONFIG_leafGlobalVars += \
-    target_init_vendor_lib
+    target_init_vendor_lib \
+    target_surfaceflinger_udfps_lib
 
 SOONG_CONFIG_NAMESPACES += leafQcomVars
 SOONG_CONFIG_leafQcomVars += \
@@ -62,9 +63,11 @@ SOONG_CONFIG_leafQcomVars_uses_pre_uplink_features_netmgrd := $(TARGET_USES_PRE_
 # Set default values
 TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE ?= false
 TARGET_INIT_VENDOR_LIB ?= vendor_init
+TARGET_SURFACEFLINGER_UDFPS_LIB ?= surfaceflinger_udfps_lib
 
 # Soong value variables
 SOONG_CONFIG_leafGlobalVars_target_init_vendor_lib := $(TARGET_INIT_VENDOR_LIB)
+SOONG_CONFIG_leafGlobalVars_target_surfaceflinger_udfps_lib := $(TARGET_SURFACEFLINGER_UDFPS_LIB)
 ifneq ($(filter $(QSSI_SUPPORTED_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
 SOONG_CONFIG_leafQcomVars_qcom_display_headers_namespace := vendor/qcom/opensource/commonsys-intf/display
 else
