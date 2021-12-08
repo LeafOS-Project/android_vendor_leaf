@@ -24,6 +24,9 @@ PRODUCT_PACKAGES += \
     ThemePicker \
     DefaultThemesStub
 
+# Lawnicons
+$(call inherit-product-if-exists, vendor/lawnicons/overlay.mk)
+
 # Overlays
 PRODUCT_PACKAGE_OVERLAYS += \
     vendor/leaf/overlay/common
