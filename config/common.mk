@@ -82,6 +82,10 @@ PRODUCT_PACKAGE_OVERLAYS += \
 PRODUCT_PACKAGES += \
     MuPDF
 
+# Permissions
+PRODUCT_COPY_FILES += \
+    vendor/leaf/config/permissions/privapp-permissions-settings.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-settings.xml
+
 # Required packages
 PRODUCT_PACKAGES += \
     androidx.window.extensions
