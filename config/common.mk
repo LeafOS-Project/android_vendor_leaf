@@ -78,6 +78,10 @@ PRODUCT_PACKAGE_OVERLAYS += \
     vendor/leaf/overlay/common \
     vendor/leaf/overlay/no-rro
 
+# Permissions
+PRODUCT_COPY_FILES += \
+    vendor/leaf/config/permissions/privapp-permissions-settings.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-settings.xml
+
 # PDF
 PRODUCT_PACKAGES += \
     MuPDF
