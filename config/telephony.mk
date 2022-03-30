@@ -20,3 +20,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     messaging \
     Stk
+
+# Disable mobile data by default
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.com.android.mobiledata=false
