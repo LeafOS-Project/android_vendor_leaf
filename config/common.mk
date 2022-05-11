@@ -40,6 +40,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI
 
+# Compile SystemUI on device with `speed`.
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.systemuicompilerfilter=speed
+
 # Google apps
 ifeq ($(WITH_GMS), true)
 $(call inherit-product, vendor/gapps/gms.mk)
