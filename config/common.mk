@@ -32,6 +32,7 @@ PRODUCT_PACKAGES += \
 # Customization
 PRODUCT_PACKAGES += \
     LeafBackgrounds \
+    LeafBlackTheme \
     ThemePicker \
     DefaultThemesStub
 
