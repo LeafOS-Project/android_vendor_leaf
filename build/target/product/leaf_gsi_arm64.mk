@@ -13,6 +13,7 @@
 # limitations under the License.
 
 $(call inherit-product, device/generic/common/gsi_arm64.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_product.mk)
 $(call inherit-product, vendor/leaf/build/target/product/leaf_generic_target.mk)
 
 PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
