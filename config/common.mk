@@ -28,8 +28,12 @@ PRODUCT_PACKAGES += \
 $(call inherit-product-if-exists, vendor/lawnicons/overlay.mk)
 
 # Overlays
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
+    vendor/leaf/overlay/no-rro
+
 PRODUCT_PACKAGE_OVERLAYS += \
-    vendor/leaf/overlay/common
+    vendor/leaf/overlay/common \
+    vendor/leaf/overlay/no-rro
 
 # Required packages
 PRODUCT_PACKAGES += \
