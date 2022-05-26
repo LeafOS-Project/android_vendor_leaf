@@ -14,6 +14,10 @@
 
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
+# Apps
+PRODUCT_PACKAGES += \
+    Etar
+
 # Browser
 PRODUCT_PACKAGES += \
     Bromite \
