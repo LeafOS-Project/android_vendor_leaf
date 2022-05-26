@@ -20,4 +20,7 @@
 
     <!-- Enable All Apps header scrim (works fine with our fixed search UI) -->
     <bool name="config_header_protection_supported">true</bool>
+
+    <string name="calendar_component_name" translatable="false">org.leafos.etar/com.android.calendar.AllInOneActivity</string>
+    <string name="clock_component_name" translatable="false">com.android.deskclock/com.android.deskclock.DeskClock</string>
 </resources>
