@@ -12,4 +12,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include vendor/leaf/config/BoardConfigKernel.mk
 -include vendor/extra/BoardConfigExtra.mk
