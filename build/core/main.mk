@@ -12,8 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include vendor/leaf/build/core/main.mk
-include vendor/leaf/config/BoardConfigKernel.mk
--include vendor/extra/BoardConfigExtra.mk
+# LeafOS System Version
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.leaf.version=$(LEAF_VERSION) \
+    ro.leaf.releasetype=$(LEAF_BUILDTYPE) \
+    ro.leaf.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
+    ro.modversion=$(LEAF_VERSION)
 
--include device/lineage/sepolicy/common/sepolicy.mk
+# LeafOS Platform Display Version
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.leaf.display.version=$(LEAF_DISPLAY_VERSION)
