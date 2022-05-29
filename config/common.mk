@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include vendor/leaf/config/version.mk
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
 # Apps
