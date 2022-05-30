@@ -12,14 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/leaf_gsi_arm64.mk \
-    $(LOCAL_DIR)/leaf_sdk_phone_x86_64.mk
+$(call inherit-product, $(SRC_TARGET_DIR)/product/sdk_phone_x86_64.mk)
+$(call inherit-product, vendor/leaf/build/target/product/leaf_generic_target.mk)
 
-COMMON_LUNCH_CHOICES := \
-    leaf_gsi_arm64-eng \
-    leaf_gsi_arm64-user \
-    leaf_gsi_arm64-userdebug \
-    leaf_sdk_phone_x86_64-user \
-    leaf_sdk_phone_x86_64-userdebug \
-    leaf_sdk_phone_x86_64-eng
+## Device identifier, this must come after all inclusions
+PRODUCT_NAME := leaf_sdk_phone_x86_64
+PRODUCT_DEVICE := emulator_x86_64
+PRODUCT_BRAND := leaf
+PRODUCT_MODEL := Leaf SDK built for x86_64
+PRODUCT_MANUFACTURER := leaf
