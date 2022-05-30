@@ -15,6 +15,10 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/sdk_phone_x86_64.mk)
 $(call inherit-product, vendor/leaf/build/target/product/leaf_generic_target.mk)
 
+# SDK addon
+PRODUCT_SDK_ADDON_NAME := leaf
+PRODUCT_SDK_ADDON_SYS_IMG_SOURCE_PROP := $(LOCAL_PATH)/source.properties
+
 ## Device identifier, this must come after all inclusions
 PRODUCT_NAME := leaf_sdk_phone_x86_64
 PRODUCT_DEVICE := emulator_x86_64
