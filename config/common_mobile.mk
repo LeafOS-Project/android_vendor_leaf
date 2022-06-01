@@ -17,3 +17,7 @@ $(call inherit-product, vendor/leaf/config/common.mk)
 # Camera
 PRODUCT_PACKAGES += \
     GrapheneCamera
+
+# Customizations
+PRODUCT_PACKAGES += \
+    NavigationBarNoHintOverlay
