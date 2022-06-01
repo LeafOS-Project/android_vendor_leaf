@@ -15,4 +15,9 @@
 include vendor/leaf/config/BoardConfigKernel.mk
 -include vendor/extra/BoardConfigExtra.mk
 
+# Check if devicetree is correctly set up
+ifndef LEAF_VERSION
+$(error All targets must inherit from leaf vendor makefiles)
+endif
+
 include device/lineage/sepolicy/common/sepolicy.mk
