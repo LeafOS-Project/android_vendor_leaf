@@ -20,4 +20,5 @@ PRODUCT_PACKAGES += \
 
 # Customizations
 PRODUCT_PACKAGES += \
+    BlackThemeOverlay \
     NavigationBarNoHintOverlay
