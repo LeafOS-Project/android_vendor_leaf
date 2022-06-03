@@ -27,6 +27,12 @@ ifndef LEAF_BUILDTYPE
     endif
 endif
 
+LEAF_FLAVOR ?= Vanilla
+
+ifdef WITH_GMS
+LEAF_FLAVOR := GMS
+endif
+
 # Internal version
 LEAF_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)
 

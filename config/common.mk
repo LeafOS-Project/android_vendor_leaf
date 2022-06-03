@@ -30,6 +30,11 @@ PRODUCT_PACKAGES += \
     ThemePicker \
     DefaultThemesStub
 
+# Google apps
+ifdef WITH_GMS
+$(call inherit-product, vendor/gapps/$(WITH_GMS)/$(WITH_GMS)-vendor.mk)
+endif
+
 # Lawnicons
 $(call inherit-product-if-exists, vendor/lawnicons/overlay.mk)
 

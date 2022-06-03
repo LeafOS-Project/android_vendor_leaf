@@ -16,6 +16,7 @@
 ADDITIONAL_PRODUCT_PROPERTIES += \
     ro.leaf.version=$(LEAF_VERSION) \
     ro.leaf.releasetype=$(LEAF_BUILDTYPE) \
+    ro.leaf.flavor=$(LEAF_FLAVOR) \
     ro.leaf.build.date=$(LEAF_BUILD_DATE) \
     ro.leaf.build.version=$(LEAF_VERSION) \
     ro.modversion=$(LEAF_VERSION)
