@@ -27,6 +27,10 @@ ifndef LEAF_BUILDTYPE
     endif
 endif
 
+ifdef WITH_GMS
+LEAF_BUILDTYPE := $(LEAF_BUILDTYPE)-GMS
+endif
+
 # Internal version
 LEAF_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)
 
