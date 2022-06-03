@@ -20,4 +20,9 @@ ifndef LEAF_VERSION
 $(error All targets must inherit from leaf vendor makefiles)
 endif
 
+# Gapps
+ifeq ($(WITH_GMS), true)
+include vendor/gapps/BoardConfigGapps.mk
+endif
+
 include device/lineage/sepolicy/common/sepolicy.mk
