@@ -16,19 +16,28 @@ include vendor/leaf/config/version.mk
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
 # Apps
+ifndef WITH_GMS
 PRODUCT_PACKAGES += \
     Etar
+endif
 
 # Browser
+ifndef WITH_GMS
 PRODUCT_PACKAGES += \
     Bromite \
     BromiteWebView
+endif
 
 # Customization
 PRODUCT_PACKAGES += \
     LeafBackgrounds \
     ThemePicker \
     DefaultThemesStub
+
+# Google apps
+ifdef WITH_GMS
+$(call inherit-product, vendor/gapps/$(WITH_GMS)/$(WITH_GMS)-vendor.mk)
+endif
 
 # Lawnicons
 $(call inherit-product-if-exists, vendor/lawnicons/overlay.mk)
