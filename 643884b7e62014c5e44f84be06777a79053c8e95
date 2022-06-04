@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f66546c1_8ce0d3b3",
+        "filename": "config/common.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-04T10:40:43Z",
+      "side": 1,
+      "message": "Order alphabetically",
+      "revId": "643884b7e62014c5e44f84be06777a79053c8e95",
+      "serverId": "b49086b3-c06c-47ea-b69e-65c8379e1be6"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1bf9fa3_d8546b9b",
+        "filename": "config/common.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-06-04T10:40:43Z",
+      "side": 1,
+      "message": "Give it a more unique name like leaf_charger_res_images maybe?",
+      "revId": "643884b7e62014c5e44f84be06777a79053c8e95",
+      "serverId": "b49086b3-c06c-47ea-b69e-65c8379e1be6"
+    }
+  ]
+}
