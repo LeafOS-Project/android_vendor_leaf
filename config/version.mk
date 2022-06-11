@@ -31,6 +31,9 @@ LEAF_FLAVOR ?= Vanilla
 
 ifdef WITH_GMS
 LEAF_FLAVOR := GMS
+ifeq ($(WITH_GMS), microG)
+LEAF_FLAVOR := microG
+endif
 endif
 
 # Internal version
