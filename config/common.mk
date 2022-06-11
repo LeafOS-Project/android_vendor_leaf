@@ -31,7 +31,9 @@ PRODUCT_PACKAGES += \
     DefaultThemesStub
 
 # Google apps
-ifdef WITH_GMS
+ifeq ($(WITH_GMS), microG)
+$(call inherit-product, vendor/microg/products/gms.mk)
+else
 $(call inherit-product, vendor/gapps/$(WITH_GMS)/$(WITH_GMS)-vendor.mk)
 endif
 
