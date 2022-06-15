@@ -29,11 +29,11 @@ endif
 
 LEAF_FLAVOR ?= Vanilla
 
-ifdef WITH_GMS
+ifeq ($(WITH_GMS), true)
 LEAF_FLAVOR := GMS
-ifeq ($(WITH_GMS), microG)
-LEAF_FLAVOR := microG
 endif
+ifeq ($(WITH_MICROG), true)
+LEAF_FLAVOR := microG
 endif
 
 # Internal version
