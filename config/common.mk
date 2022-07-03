@@ -60,3 +60,10 @@ PRODUCT_PACKAGE_OVERLAYS += \
 # Required packages
 PRODUCT_PACKAGES += \
     androidx.window.extensions
+
+# Translations
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
+    vendor/crowdin/overlay
+
+PRODUCT_PACKAGE_OVERLAYS += \
+    vendor/crowdin/overlay
