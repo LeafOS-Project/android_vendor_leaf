@@ -92,6 +92,9 @@ PRODUCT_PACKAGE_OVERLAYS += \
     vendor/leaf/overlay/common \
     vendor/leaf/overlay/no-rro
 
+PRODUCT_PACKAGES += \
+    NetworkStackOverlay
+
 # PDF
 PRODUCT_PACKAGES += \
     MuPDF
