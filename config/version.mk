@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_VERSION_MAJOR := 1
-PRODUCT_VERSION_MINOR := 1
+PRODUCT_VERSION_MAJOR := 2
+PRODUCT_VERSION_MINOR := 0
 
 LEAF_BUILD_DATE := $(shell date -u +%Y%m%d)
 
