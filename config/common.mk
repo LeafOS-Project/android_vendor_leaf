@@ -42,9 +42,6 @@ ifeq ($(WITH_MICROG), true)
 $(call inherit-product, vendor/microg/products/gms.mk)
 endif
 
-# Lawnicons
-$(call inherit-product-if-exists, vendor/lawnicons/overlay.mk)
-
 # Leaf packages
 PRODUCT_PACKAGES += \
     Updater
