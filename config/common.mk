@@ -26,7 +26,8 @@ PRODUCT_PACKAGES += \
 
 # Charger
 PRODUCT_PACKAGES += \
-    leaf_charger
+    leaf_charger \
+    leaf_charger_vendor
 
 # Customization
 PRODUCT_PACKAGES += \
