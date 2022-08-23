@@ -117,4 +117,18 @@
 
     <!-- IP address of the dns server to use if nobody else suggests one -->
     <string name="config_default_dns_server" translatable="false">1.0.0.1</string>
+
+    <!-- The default value used for RawContacts.ACCOUNT_NAME when contacts are inserted without this
+         column set. These contacts are stored locally on the device and will not be removed even
+         if no android.account.Account with this name exists. A null string will be used if the
+         value is left empty. When this is non-empty then config_rawContactsLocalAccountType
+         should also be non-empty.  -->
+    <string name="config_rawContactsLocalAccountName" translatable="false">DEVICE</string>
+
+    <!-- The default value used for RawContacts.ACCOUNT_TYPE when contacts are inserted without this
+         column set. These contacts are stored locally on the device and will not be removed even
+         if no android.account.Account with this type exists. A null string will be used if the
+         value is left empty.  When this is non-empty then config_rawContactsLocalAccountName
+         should also be non-empty.-->
+    <string name="config_rawContactsLocalAccountType" translatable="false">com.android.contacts</string>
 </resources>
