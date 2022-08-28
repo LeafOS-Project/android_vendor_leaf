@@ -31,7 +31,7 @@ ifndef LEAF_BUILDTYPE
     endif
 endif
 
-LEAF_FLAVOR ?= Vanilla
+LEAF_FLAVOR ?= VANILLA
 
 ifeq ($(WITH_GMS), true)
 LEAF_FLAVOR := GMS
