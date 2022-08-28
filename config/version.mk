@@ -15,7 +15,11 @@
 PRODUCT_VERSION_MAJOR := 2
 PRODUCT_VERSION_MINOR := 0
 
-LEAF_BUILD_DATE := $(shell date -u +%Y%m%d)
+ifeq ($(LEAF_VERSION_APPEND_TIME_OF_DAY),true)
+    LEAF_BUILD_DATE := $(shell date -u +%Y%m%d_%H%M%S)
+else
+    LEAF_BUILD_DATE := $(shell date -u +%Y%m%d)
+endif
 
 # If unset set LEAF_BUILDTYPE to the env variable RELEASE_TYPE, or
 # if that doesn't exist to "UNOFFICIAL"
