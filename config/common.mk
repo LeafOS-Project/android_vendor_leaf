@@ -55,6 +55,7 @@ endif
 
 # Leaf packages
 PRODUCT_PACKAGES += \
+    LeafSetupWizard \
     Updater
 
 # Overlays
