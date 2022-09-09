@@ -19,6 +19,10 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 PRODUCT_PACKAGES += \
     Etar
 
+# Bootanimation
+PRODUCT_PACKAGES += \
+    bootanimation.zip
+
 # Browser
 PRODUCT_PACKAGES += \
     Bromite \
