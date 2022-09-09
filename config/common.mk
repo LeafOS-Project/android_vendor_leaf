@@ -19,6 +19,12 @@ PRODUCT_PACKAGES += \
     Etar \
     ExactCalculator
 
+# Bootanimation
+TARGET_SCREEN_WIDTH ?= 1080
+
+PRODUCT_PACKAGES += \
+    bootanimation.zip
+
 # Browser
 PRODUCT_PACKAGES += \
     TrichromeChrome6432 \
