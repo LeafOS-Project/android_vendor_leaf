@@ -20,13 +20,8 @@ PRODUCT_PACKAGES += \
     Etar
 
 # Bootanimation
-ifeq ($(TARGET_SCREEN_WIDTH), 720)
-PRODUCT_COPY_FILES += \
-    vendor/leaf/bootanimation/bootanimation_720.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
-else
-PRODUCT_COPY_FILES += \
-    vendor/leaf/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
-endif
+PRODUCT_PACKAGES += \
+    bootanimation.zip
 
 # Browser
 PRODUCT_PACKAGES += \
