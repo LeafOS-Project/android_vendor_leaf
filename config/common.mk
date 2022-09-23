@@ -17,7 +17,8 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 
 # Apps
 PRODUCT_PACKAGES += \
-    Etar
+    Etar \
+    ExactCalculator
 
 # Bootanimation
 TARGET_SCREEN_WIDTH ?= 1080
