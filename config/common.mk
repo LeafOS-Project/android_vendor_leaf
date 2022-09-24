@@ -71,6 +71,10 @@ PRODUCT_PACKAGE_OVERLAYS += \
     vendor/leaf/overlay/common \
     vendor/leaf/overlay/no-rro
 
+# PDF
+PRODUCT_PACKAGES += \
+    MuPDF
+
 # Required packages
 PRODUCT_PACKAGES += \
     androidx.window.extensions
