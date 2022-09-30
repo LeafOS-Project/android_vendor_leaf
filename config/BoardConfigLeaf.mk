@@ -15,4 +15,5 @@
 include vendor/leaf/config/BoardConfigKernel.mk
 -include vendor/extra/BoardConfigExtra.mk
 
+include device/leaf/sepolicy/common/sepolicy.mk
 include device/lineage/sepolicy/common/sepolicy.mk
