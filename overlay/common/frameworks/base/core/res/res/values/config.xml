@@ -75,4 +75,7 @@
 
     <!-- The name of the package that will hold the wellbeing role. -->
     <string name="config_systemWellbeing" translatable="false">com.android.launcher3</string>
+
+    <!-- Default component for QR code scanner -->
+    <string name="config_defaultQrCodeComponent" translatable="false">org.leafos.aperture/.QrScannerActivity</string>
 </resources>
