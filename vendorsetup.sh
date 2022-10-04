@@ -27,3 +27,13 @@ function leaf_lunch()
     export LINEAGE_BUILD=$LEAF_BUILD
 }
 alias lunch=leaf_lunch
+
+function fetch_device()
+{
+    if [ -z "$1" ]; then
+        echo "Usage: fetch_device <codename>"
+        return 1
+    fi
+
+    python3 vendor/leaf/tools/gen_local_manifest.py "$1" "$(gettop)"
+}
