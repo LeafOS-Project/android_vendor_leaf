@@ -32,3 +32,8 @@ function repopick()
 {
     "$(gettop)"/vendor/leaf/tools/repopick.py "$@"
 }
+
+function fetch_device()
+{
+    "$(gettop)"/vendor/leaf/tools/gen_local_manifest.py "$1" "$(gettop)"
+}
