@@ -27,3 +27,8 @@ function leaf_lunch()
     export LINEAGE_BUILD=$LEAF_BUILD
 }
 alias lunch=leaf_lunch
+
+function fetch_device()
+{
+    "$(gettop)"/vendor/leaf/tools/fetch_device.py "$1" "$(gettop)"
+}
