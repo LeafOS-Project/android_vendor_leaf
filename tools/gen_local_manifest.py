@@ -1,0 +1,36 @@
+import json, sys, os
+
+target_device = sys.argv[1]
+topdir = sys.argv[2]
+
+os.makedirs(f'{topdir}/.repo/manifests/local_manifests', exist_ok=True)
+
+data = json.load(open(f'{topdir}/leaf/devices/devices.json'))
+
+for item in data:
+	for device in item['device']:
+		if device == target_device:
+			repositories = item['repositories']
+
+if not 'repositories' in locals():
+	print('Device not found')
+	exit()
+
+repo_tmp = open(f'{topdir}/.repositories.tmp', 'w')
+
+with open(f'{topdir}/.repo/manifests/local_manifests/device.xml', 'w') as local_manifest:
+	print('<manifest>', file = local_manifest)
+
+	for repo in repositories:
+		repo_path = repo.split('/')[1].split('_')[1:]
+		repo_path = '/'.join(repo_path)
+		print(f'  <project path="{repo_path}" name="{repo}" />', file = local_manifest)
+		print(f'{repo_path}', file = repo_tmp)
+
+	print('</manifest>', file = local_manifest)
+
+repo_tmp.close()
+
+with open(f'{topdir}/.repositories.tmp') as repositories:
+	for repo in repositories:
+		os.system(f'repo sync {repo}')
