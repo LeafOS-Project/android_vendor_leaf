@@ -31,4 +31,10 @@ alias lunch=leaf_lunch
 function fetch_device()
 {
     "$(gettop)"/vendor/leaf/tools/fetch_device.py "$1" "$(gettop)"
+
+}
+
+function repopick()
+{
+    "$(gettop)"/vendor/leaf/tools/repopick.py "$@"
 }
