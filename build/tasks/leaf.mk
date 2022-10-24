@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LEAF_TARGET_PACKAGE := $(PRODUCT_OUT)/leaf-$(LEAF_VERSION)-$(LEAF_BUILD_DATE)-$(LEAF_BUILDTYPE)-$(LEAF_FLAVOR)-$(TARGET_DEVICE).zip
+LEAF_TARGET_PACKAGE := $(PRODUCT_OUT)/leaf-$(LEAF_VERSION)-$(LEAF_BUILD_DATE)$(LEAF_EXTRAVERSION)-$(LEAF_BUILDTYPE)-$(LEAF_FLAVOR)-$(TARGET_DEVICE).zip
 
 SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
 
