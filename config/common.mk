@@ -59,6 +59,10 @@ PRODUCT_PACKAGES += \
     LeafSetupWizard \
     Updater
 
+# OTA
+PRODUCT_EXTRA_RECOVERY_KEYS += \
+    vendor/leaf/build/target/product/security/leaf
+
 # Overlays
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
     vendor/leaf/overlay/no-rro
