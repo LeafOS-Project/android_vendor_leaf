@@ -20,14 +20,6 @@ function aospremote()
     echo "Remote 'aosp' created"
 }
 
-function leaf_lunch()
-{
-    lunch "$@"
-    export LEAF_BUILD=$(get_build_var TARGET_DEVICE)
-    export LINEAGE_BUILD=$LEAF_BUILD
-}
-alias lunch=leaf_lunch
-
 function fetch_device()
 {
     "$(gettop)"/vendor/leaf/tools/fetch_device.py "$1" "$(gettop)"
