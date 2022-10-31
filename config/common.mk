@@ -78,12 +78,21 @@ PRODUCT_PACKAGE_OVERLAYS += \
     vendor/leaf/overlay/common \
     vendor/leaf/overlay/no-rro
 
+# ParanoidSense
+PRODUCT_PACKAGES += \
+    ParanoidSense
+
+# Enable Sense service for 64-bit only
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    ro.face.sense_service=$(TARGET_SUPPORTS_64_BIT_APPS)
+
 # PDF
 PRODUCT_PACKAGES += \
     MuPDF
 
 # Permissions
 PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml \
     vendor/leaf/config/permissions/privapp-permissions-settings.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-settings.xml
 
 # Required packages
