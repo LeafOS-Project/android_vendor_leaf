@@ -90,7 +90,8 @@ PRODUCT_PACKAGE_OVERLAYS += \
 
 # ParanoidSense
 PRODUCT_PACKAGES += \
-    ParanoidSense
+    ParanoidSense \
+    SettingsOverlay
 
 # Enable Sense service for 64-bit only
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
