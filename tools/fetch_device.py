@@ -54,6 +54,8 @@ for repo in repositories:
 		project.set('revision', repo['revision'])
 	if 'remote' in repo:
 		project.set('remote', repo['remote'])
+	else:
+		project.set('remote', 'github')
 
 	lm.append(project)
 
