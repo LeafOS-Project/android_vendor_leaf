@@ -28,5 +28,5 @@ function fetch_device()
 
 function repopick()
 {
-    "$(gettop)"/vendor/leaf/tools/repopick.py "$@"
+    ANDROID_BUILD_TOP="$(gettop)" "$(gettop)"/vendor/leaf/tools/repopick.py "$@"
 }
