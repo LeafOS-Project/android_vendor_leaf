@@ -16,7 +16,7 @@ $(call inherit-product, vendor/leaf/config/common.mk)
 
 # Camera
 PRODUCT_PACKAGES += \
-    GrapheneCamera
+    Aperture
 
 # Customizations
 PRODUCT_PACKAGES += \
