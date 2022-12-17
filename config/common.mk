@@ -21,8 +21,8 @@ PRODUCT_PACKAGES += \
 
 # Browser
 PRODUCT_PACKAGES += \
-    Bromite \
-    BromiteWebView
+    TrichromeChrome6432 \
+    TrichromeWebView6432
 
 # Charger
 PRODUCT_PACKAGES += \
