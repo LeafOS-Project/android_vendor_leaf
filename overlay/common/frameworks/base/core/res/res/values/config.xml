@@ -102,4 +102,16 @@
         <!-- The MicroG Unified location provider -->
         <item>org.microg.nlp</item>
     </string-array>
+
+    <string-array name="config_locationExtraPackageNames" translatable="false">
+        <!-- Bluetooth -->
+        <item>com.android.bluetooth</item>
+        <!-- TeleService -->
+        <item>com.android.phone</item>
+        <!-- CneApp -->
+        <item>com.qualcomm.qti.cne</item>
+        <!-- ImsService -->
+        <item>com.shannon.imsservice</item>
+        <item>com.mediatek.ims</item>
+    </string-array>
 </resources>
