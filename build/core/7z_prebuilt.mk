@@ -20,5 +20,5 @@ $(PRODUCT_OUT)/obj/7Z_PREBUILTS/$(LOCAL_MODULE).$(TARGET_ARCH).$(LOCAL_7Z_EXT): 
 	@mkdir -p $(dir $@)
 	@prebuilts/tools-leaf/$(HOST_PREBUILT_TAG)/bin/7z e -txz -so $< > $@
 
-LOCAL_SRC_FILES := $(shell echo $(LOCAL_PATH) | sed 's/[a-zA-Z0-9]*/../g')/$(PRODUCT_OUT)/obj/7Z_PREBUILTS/$(LOCAL_MODULE).$(TARGET_ARCH).$(LOCAL_7Z_EXT)
+LOCAL_SRC_FILES := $(shell echo $(LOCAL_PATH) | sed 's/[^/]*/../g')/$(PRODUCT_OUT)/obj/7Z_PREBUILTS/$(LOCAL_MODULE).$(TARGET_ARCH).$(LOCAL_7Z_EXT)
 include $(BUILD_PREBUILT)
