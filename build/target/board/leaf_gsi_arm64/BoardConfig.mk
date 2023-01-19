@@ -1,4 +1,5 @@
-# Copyright (C) 2022-2023 The LeafOS Project
+#
+# Copyright (C) 2023 The LeafOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,18 +12,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
-$(call inherit-product, device/generic/common/gsi_arm64.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_product.mk)
-$(call inherit-product, vendor/leaf/build/target/product/leaf_generic_target.mk)
-
-PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
-
-TARGET_NO_KERNEL_OVERRIDE := true
-
-## Device identifier, this must come after all inclusions
-PRODUCT_NAME := leaf_gsi_arm64
-PRODUCT_DEVICE := leaf_gsi_arm64
-PRODUCT_BRAND := leaf
-PRODUCT_MODEL := LeafOS on ARM64
-PRODUCT_MANUFACTURER := leaf
+include $(SRC_TARGET_DIR)/board/gsi_arm64/BoardConfig.mk
