@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96608bb5_ad4aaf08",
+        "filename": "config/common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-21T17:01:38Z",
+      "side": 1,
+      "message": "Order alphabetically (should be below PDF)",
+      "revId": "3354aea5537235a68d63dd22811f5a9ea0ea9844",
+      "serverId": "b49086b3-c06c-47ea-b69e-65c8379e1be6"
+    }
+  ]
+}
