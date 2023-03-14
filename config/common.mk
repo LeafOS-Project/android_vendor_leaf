@@ -1,4 +1,4 @@
-# Copyright (C) 2022 The LeafOS Project
+# Copyright (C) 2022-2023 The LeafOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+$(call inherit-product, $(SRC_TARGET_DIR)/product/window_extensions.mk)
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
 # Apps
@@ -91,7 +92,3 @@ PRODUCT_PACKAGES += \
 # Permissions
 PRODUCT_COPY_FILES += \
     vendor/leaf/config/permissions/privapp-permissions-settings.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-settings.xml
-
-# Required packages
-PRODUCT_PACKAGES += \
-    androidx.window.extensions
