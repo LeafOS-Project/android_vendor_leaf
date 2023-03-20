@@ -15,6 +15,13 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/window_extensions.mk)
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
+# Adblock
+PRODUCT_PACKAGES += \
+    hosts.adblock
+
+PRODUCT_COPY_FILES += \
+    vendor/leaf/etc/init/init.adblock.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.adblock.rc
+
 # Apps
 PRODUCT_PACKAGES += \
     Etar \
