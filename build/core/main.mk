@@ -24,3 +24,5 @@ ADDITIONAL_PRODUCT_PROPERTIES += \
 # LeafOS Platform Display Version
 ADDITIONAL_PRODUCT_PROPERTIES += \
     ro.leaf.display.version=$(LEAF_DISPLAY_VERSION)
+
+include $(TOPDIR)vendor/leaf/build/core/config.mk
