@@ -30,3 +30,191 @@ vendor_init {
         },
     },
 }
+
+
+// LineageOS soong configs
+
+bootstrap_go_package {
+    name: "soong-lineage-generator",
+    pkgPath: "leaf/soong/generator",
+    deps: [
+        "blueprint",
+        "blueprint-pathtools",
+        "soong",
+        "soong-android",
+        "soong-shared",
+    ],
+    srcs: [
+        "generator/generator.go",
+        "generator/variables.go",
+    ],
+    pluginFor: ["soong_build"],
+}
+
+lineage_generator {
+    name: "generated_kernel_includes",
+
+    // The headers make command
+    cmd: "$(PATH_OVERRIDE_SOONG) $(KERNEL_MAKE_CMD) $(KERNEL_MAKE_FLAGS) -C $(TARGET_KERNEL_SOURCE) O=$(KERNEL_BUILD_OUT_PREFIX)$(genDir) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) headers_install",
+
+    // Directories that can be imported by a cc_* module generated_headers property
+    export_include_dirs: [
+        "usr/audio/include/uapi",
+        "usr/include",
+        "usr/include/audio",
+        "usr/include/audio/include/uapi",
+        "usr/techpack/audio/include",
+    ],
+
+    // Sources for dependency tracking
+    dep_root: "$(TARGET_KERNEL_SOURCE)",
+    dep_files: [
+        "Makefile",
+        "include/**/*",
+        "arch/$(KERNEL_ARCH)/include/**/*",
+        "techpack/audio/include/**/*",
+    ],
+}
+
+cc_library_headers {
+    name: "generated_kernel_headers",
+    generated_headers: ["generated_kernel_includes"],
+    export_generated_headers: ["generated_kernel_includes"],
+    vendor_available: true,
+    recovery_available: true,
+}
+
+// Target platform agnostic config modules
+soong_config_module_type {
+    name: "gralloc_10_usage_bits",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    value_variables: ["additional_gralloc_10_usage_bits"],
+    properties: ["cppflags"],
+}
+
+gralloc_10_usage_bits {
+    name: "gralloc_10_usage_bits_defaults",
+    soong_config_variables: {
+        additional_gralloc_10_usage_bits: {
+            cppflags: ["-DADDNL_GRALLOC_10_USAGE_BITS=%s"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "gralloc_handle_reserved_size",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    bool_variables: ["gralloc_handle_has_reserved_size"],
+    properties: ["export_cflags"],
+}
+
+gralloc_handle_reserved_size {
+    name: "gralloc_handle_has_reserved_size_defaults",
+    soong_config_variables: {
+        gralloc_handle_has_reserved_size: {
+            export_cflags: ["-DGRALLOC_HANDLE_HAS_RESERVED_SIZE"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "target_shim_libs",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    value_variables: ["target_ld_shim_libs"],
+    properties: ["cppflags"],
+}
+
+target_shim_libs {
+    name: "shim_libs_defaults",
+    soong_config_variables: {
+        target_ld_shim_libs: {
+            cppflags: ["-DLD_SHIM_LIBS=\"%s\""],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "surfaceflinger_udfps_lib",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    value_variables: ["target_surfaceflinger_udfps_lib"],
+    properties: [
+        "cppflags",
+        "whole_static_libs",
+    ],
+}
+
+surfaceflinger_udfps_lib {
+    name: "surfaceflinger_udfps_lib_defaults",
+    soong_config_variables: {
+        target_surfaceflinger_udfps_lib: {
+            cppflags: ["-DTARGET_PROVIDES_UDFPS_LIB"],
+            whole_static_libs: ["%s"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "trust_usb_control",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    value_variables: [
+        "target_trust_usb_control_path",
+        "target_trust_usb_control_enable",
+        "target_trust_usb_control_disable",
+    ],
+    properties: ["cppflags"],
+}
+
+trust_usb_control {
+    name: "trust_usb_control_defaults",
+    soong_config_variables: {
+        target_trust_usb_control_path: {
+            cppflags: ["-DUSB_CONTROL_PATH=\"%s\""],
+        },
+        target_trust_usb_control_enable: {
+            cppflags: ["-DUSB_CONTROL_ENABLE=\"%s\""],
+        },
+        target_trust_usb_control_disable: {
+            cppflags: ["-DUSB_CONTROL_DISABLE=\"%s\""],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "egl_display_array",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    bool_variables: ["uses_egl_display_array"],
+    properties: ["cflags"],
+}
+
+egl_display_array {
+    name: "egl_display_array_defaults",
+    soong_config_variables: {
+        uses_egl_display_array: {
+            cflags: ["-DEGL_DISPLAY_ARRAY"],
+        },
+    },
+}
+
+// QCOM specific config modules
+soong_config_module_type {
+    name: "librmnetctl_pre_uplink",
+    module_type: "cc_defaults",
+    config_namespace: "lineageQcomVars",
+    bool_variables: ["uses_pre_uplink_features_netmgrd"],
+    properties: ["cflags"],
+}
+
+librmnetctl_pre_uplink {
+    name: "librmnetctl_pre_uplink_defaults",
+    soong_config_variables: {
+        uses_pre_uplink_features_netmgrd: {
+            cflags: ["-DNO_UPLINK_FEATURES"],
+        },
+    },
+}
