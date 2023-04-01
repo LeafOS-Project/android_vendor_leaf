@@ -1,4 +1,4 @@
-# Copyright (C) 2022 The LeafOS Project
+# Copyright (C) 2023 The LeafOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,16 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include vendor/leaf/config/BoardConfigKernel.mk
-ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
-include vendor/leaf/config/BoardConfigQcom.mk
-endif
-include vendor/leaf/config/BoardConfigSoong.mk
-include vendor/leaf/config/BoardConfigVersion.mk
--include vendor/extra/BoardConfigExtra.mk
-
-include device/leaf/sepolicy/common/sepolicy.mk
-include device/lineage/sepolicy/common/sepolicy.mk
-
-# Recovery
-BOARD_USES_FULL_RECOVERY_IMAGE ?= true
+include vendor/leaf/build/core/definitions.mk
+include vendor/leaf/build/core/pathmap.mk
+include vendor/leaf/build/core/qcom_target.mk
