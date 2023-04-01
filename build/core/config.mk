@@ -1,4 +1,4 @@
-# Copyright (C) 2022 The LeafOS Project
+# Copyright (C) 2023 The LeafOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,17 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# LeafOS System Version
-ADDITIONAL_PRODUCT_PROPERTIES += \
-    ro.leaf.version=$(LEAF_VERSION) \
-    ro.leaf.releasetype=$(LEAF_BUILDTYPE) \
-    ro.leaf.flavor=$(LEAF_FLAVOR) \
-    ro.leaf.build.date=$(LEAF_BUILD_DATE) \
-    ro.leaf.build.version=$(LEAF_VERSION) \
-    ro.modversion=$(LEAF_VERSION)
-
-# LeafOS Platform Display Version
-ADDITIONAL_PRODUCT_PROPERTIES += \
-    ro.leaf.display.version=$(LEAF_DISPLAY_VERSION)
-
-include vendor/leaf/build/core/config.mk
+include vendor/leaf/build/core/definitions.mk
+include vendor/leaf/build/core/pathmap.mk
+include vendor/leaf/build/core/qcom_target.mk
