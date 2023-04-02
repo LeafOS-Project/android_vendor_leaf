@@ -2,7 +2,7 @@ on property:persist.sys.adblock_enabled=true
     setprop sys.adblock_status started
 
 on property:sys.adblock_status=started
-    mount none /system_ext/etc/hosts.adblock /system/etc/hosts bind
+    mount none /system_ext/etc/hosts.adblock /system/etc/hosts.adblock bind
 
 on property:sys.adblock_status=stopped
-    umount /system/etc/hosts
+    umount /system/etc/hosts.adblock
