@@ -24,4 +24,4 @@ include device/leaf/sepolicy/common/sepolicy.mk
 include device/lineage/sepolicy/common/sepolicy.mk
 
 # Recovery
-BOARD_USES_FULL_RECOVERY_IMAGE := true
+BOARD_USES_FULL_RECOVERY_IMAGE ?= true
