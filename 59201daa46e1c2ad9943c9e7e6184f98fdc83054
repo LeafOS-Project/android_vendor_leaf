@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dc8a234_6cf7ca56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-05T15:40:54Z",
+      "side": 1,
+      "message": "Might be a good idea to enable this only for user builds?",
+      "revId": "59201daa46e1c2ad9943c9e7e6184f98fdc83054",
+      "serverId": "b49086b3-c06c-47ea-b69e-65c8379e1be6"
+    }
+  ]
+}
