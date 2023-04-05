@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9427d49_a17e8860",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-05T15:41:57Z",
+      "side": 1,
+      "message": "See comment on https://review.leafos.org/c/LeafOS-Project/android_vendor_leaf/+/2100/2?usp\u003drelated-change",
+      "revId": "935c6c4191ae4debd26cb25006915ca14c49dc9e",
+      "serverId": "b49086b3-c06c-47ea-b69e-65c8379e1be6"
+    }
+  ]
+}
