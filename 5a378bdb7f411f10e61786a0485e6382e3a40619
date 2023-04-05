@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45b2c49f_09ca597b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-05T15:41:38Z",
+      "side": 1,
+      "message": "We\u0027re not doing that, it\u0027s a device specific thing after all and I don\u0027t want to encourage people to make their trees treble incompliant (by removing this because they see it is set by default)",
+      "revId": "5a378bdb7f411f10e61786a0485e6382e3a40619",
+      "serverId": "b49086b3-c06c-47ea-b69e-65c8379e1be6"
+    }
+  ]
+}
