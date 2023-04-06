@@ -22,7 +22,7 @@ function aospremote()
 
 function fetch_device()
 {
-    "$(gettop)"/vendor/leaf/tools/fetch_device.py "$1" "$(gettop)"
+    "$(gettop)"/vendor/leaf/tools/fetch_device.py "$@"
 
 }
 
