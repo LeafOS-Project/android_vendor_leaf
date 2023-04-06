@@ -24,12 +24,14 @@ from xml.etree import ElementTree
 
 target_device = sys.argv[1]
 topdir = sys.argv[2]
+local_manifest_dir = f'{topdir}/.repo/local_manifests'
+local_manifest = f'{local_manifest_dir}/local_manifest.xml'
 
 if not target_device:
 	print('Usage: fetch_device <codename>')
 	sys.exit(1)
 
-os.makedirs(f'{topdir}/.repo/local_manifests', exist_ok=True)
+os.makedirs(local_manifest_dir, exist_ok=True)
 
 with open(f'{topdir}/leaf/devices/devices.yaml') as leaf_devices:
 	data = yaml.safe_load(leaf_devices)
@@ -43,11 +45,19 @@ if not 'repositories' in locals():
 	print('Device not found')
 	sys.exit(1)
 
-lm = ElementTree.Element('manifest')
+try:
+	lm = ElementTree.parse(local_manifest).getroot()
+except:
+	lm = ElementTree.Element("manifest")
 
 for repo in repositories:
 	repo_name = repo['name']
 	repo_path = repo['path']
+
+	if any(
+		localpath.get("path") == repo_path for localpath in lm.findall("project")
+	):
+		continue
 
 	project = ElementTree.Element('project', attrib = { 'path': repo_path, 'name': repo_name })
 	if 'revision' in repo:
@@ -59,7 +69,7 @@ for repo in repositories:
 
 ElementTree.indent(lm, space='  ', level=0)
 
-with open(f'{topdir}/.repo/local_manifests/{family}.xml', 'w') as local_manifest:
+with open(local_manifest, 'w') as local_manifest:
 	local_manifest.write(ElementTree.tostring(lm).decode())
 
 for repo in repositories:
