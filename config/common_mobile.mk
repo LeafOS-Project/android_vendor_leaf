@@ -21,6 +21,9 @@ PRODUCT_PACKAGES += \
 # Customizations
 $(call inherit-product, packages/overlays/Leaf/customizations.mk)
 
+PRODUCT_PACKAGES += \
+    NavigationBarMode2ButtonOverlay
+
 # SystemUI plugins
 PRODUCT_PACKAGES += \
     QuickAccessWallet
