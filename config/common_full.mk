@@ -18,32 +18,9 @@ $(call inherit-product, vendor/leaf/config/common_mobile.mk)
 $(call inherit-product-if-exists, external/google-fonts/lato/fonts.mk)
 $(call inherit-product-if-exists, external/google-fonts/rubik/fonts.mk)
 
+# Include custom fonts
+$(call inherit-product-if-exists, external/leaf-fonts/fonts.mk)
+
 # Fonts
 PRODUCT_PACKAGES += \
-    fonts_customization.xml \
-    GoogleSans-Italic.ttf \
-    GoogleSans-Regular.ttf \
-    HarmonyOS-Sans-BlackItalic.ttf \
-    HarmonyOS-Sans-Black.ttf \
-    HarmonyOS-Sans-BoldItalic.ttf \
-    HarmonyOS-Sans-Bold.ttf \
-    HarmonyOS-Sans-Italic.ttf \
-    HarmonyOS-Sans-LightItalic.ttf \
-    HarmonyOS-Sans-Light.ttf \
-    HarmonyOS-Sans-MediumItalic.ttf \
-    HarmonyOS-Sans-Medium.ttf \
-    HarmonyOS-Sans-Regular.ttf \
-    HarmonyOS-Sans-ThinItalic.ttf \
-    HarmonyOS-Sans-Thin.ttf \
-    Inter-VF.ttf \
-    Linotte.ttf \
-    Manrope-VF.ttf \
-    OppoSans-En-Regular.ttf \
-    FontGoogleSansOverlay \
-    FontHarmonySansOverlay \
-    FontInterOverlay \
-    FontLatoOverlay \
-    FontLinotteSourceOverlay \
-    FontManropeOverlay \
-    FontOppoSansOverlay \
-    FontRubikOverlay
+    fonts_customization.xml
