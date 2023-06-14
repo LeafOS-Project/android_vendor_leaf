@@ -40,6 +40,7 @@ $(foreach v,$(EXPORT_TO_SOONG),$(eval $(call addVar,$(v))))
 
 SOONG_CONFIG_NAMESPACES += leafGlobalVars
 SOONG_CONFIG_leafGlobalVars += \
+    aapt_version_code \
     target_health_charging_control_charging_path \
     target_health_charging_control_charging_enabled \
     target_health_charging_control_charging_disabled \
@@ -76,6 +77,7 @@ TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_TOGGLE ?= true
 TARGET_INIT_VENDOR_LIB ?= vendor_init
 
 # Soong value variables
+SOONG_CONFIG_leafGlobalVars_aapt_version_code := $(shell date -u +%Y%m%d)
 SOONG_CONFIG_leafGlobalVars_target_health_charging_control_charging_path := $(TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH)
 SOONG_CONFIG_leafGlobalVars_target_health_charging_control_charging_enabled := $(TARGET_HEALTH_CHARGING_CONTROL_CHARGING_ENABLED)
 SOONG_CONFIG_leafGlobalVars_target_health_charging_control_charging_disabled := $(TARGET_HEALTH_CHARGING_CONTROL_CHARGING_DISABLED)
