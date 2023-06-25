@@ -196,6 +196,7 @@ if __name__ == '__main__':
                         metavar='', help='exclude a list of commit numbers separated by a ,')
     parser.add_argument('-c', '--check-picked', type=int, default=10,
                         metavar='', help='pass the amount of commits to check for already picked changes')
+    parser.add_argument('-C', '--checkout', action='store_true', help='checkout to specified changes')
     args = parser.parse_args()
     if not args.start_branch and args.abandon_first:
         parser.error('if --abandon-first is set, you must also give the branch name with --start-branch')
@@ -294,6 +295,15 @@ if __name__ == '__main__':
     if args.topic:
         reviews = fetch_query(args.gerrit, 'topic:{0}'.format(args.topic))
         change_numbers = [str(r['number']) for r in sorted(reviews, key=cmp_to_key(cmp_reviews))]
+        if args.checkout:
+            project_changes = {}
+            for review in reviews:
+                project = review['project']
+                number = review['number']
+                if project not in project_changes or number > project_changes[project]:
+                    project_changes[project] = number
+
+            change_numbers = [str(number) for number in project_changes.values()]
     if args.query:
         reviews = fetch_query(args.gerrit, args.query)
         change_numbers = [str(r['number']) for r in sorted(reviews, key=cmp_to_key(cmp_reviews))]
@@ -471,9 +481,25 @@ if __name__ == '__main__':
             if result != 0:
                 print('ERROR: git command failed')
                 sys.exit(result)
+        # Perform the checkout
+        if args.checkout:
+            cmd = ['git checkout FETCH_HEAD']
+            print(cmd)
+            if args.quiet:
+                cmd_out = open(os.devnull, 'wb')
+            else:
+                cmd_out = None
+            result = subprocess.call(cmd, cwd=project_path, shell=True, stdout=cmd_out, stderr=cmd_out)
+            if result != 0:
+                cmd = ['git diff-index --quiet HEAD --']
+                result = subprocess.call(cmd, cwd=project_path, shell=True, stdout=cmd_out, stderr=cmd_out)
+                if result != 0:
+                    print('ERROR: git command failed')
+                    sys.exit(result)
         # Perform the cherry-pick
-        if not args.pull:
+        if not args.checkout and not args.pull:
             cmd = ['git cherry-pick --ff FETCH_HEAD']
+            print(cmd)
             if args.quiet:
                 cmd_out = open(os.devnull, 'wb')
             else:
