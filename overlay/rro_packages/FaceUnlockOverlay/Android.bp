@@ -1,0 +1,9 @@
+//
+// Copyright (C) 2023 The LeafOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+runtime_resource_overlay {
+    name: "FaceUnlockOverlay",
+    product_specific: true,
+}
