@@ -142,6 +142,26 @@ def fetch_query_via_http(remote_url, query):
     return reviews
 
 
+def fetch_top_changes_in_chain(remote_url, change_numbers):
+    top_changes = set()
+
+    for change_number in change_numbers:
+        url = f'{remote_url}/changes/{change_number}/revisions/current/related'
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            data = json.loads(response.text.strip(")]}'"))
+            if 'changes' in data and len(data['changes']) > 0:
+                top_change = data['changes'][0]['_change_number']
+                top_changes.add(str(top_change))
+            else:
+                top_changes.add(str(change_number))
+        else:
+            print(f'Error occurred while fetching the chain for change number {change_number}. Status Code:', response.status_code)
+
+    return top_changes
+
+
 def fetch_query(remote_url, query):
     """Wrapper for fetch_query_via_proto functions"""
     if remote_url[0:3] == 'ssh':
@@ -197,6 +217,7 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--check-picked', type=int, default=10,
                         metavar='', help='pass the amount of commits to check for already picked changes')
     parser.add_argument('-C', '--checkout', action='store_true', help='checkout to specified changes')
+    parser.add_argument('--chain', action='store_true', help='checkout to the top change from a chain')
     args = parser.parse_args()
     if not args.start_branch and args.abandon_first:
         parser.error('if --abandon-first is set, you must also give the branch name with --start-branch')
@@ -319,6 +340,10 @@ if __name__ == '__main__':
                     change_numbers.append(str(i))
             else:
                 change_numbers.append(c)
+        reviews = fetch_query(args.gerrit, ' OR '.join('change:{0}'.format(x.split('/')[0]) for x in change_numbers))
+    if args.chain:
+        args.checkout = True
+        change_numbers = fetch_top_changes_in_chain(args.gerrit, change_numbers)
         reviews = fetch_query(args.gerrit, ' OR '.join('change:{0}'.format(x.split('/')[0]) for x in change_numbers))
 
     # make list of things to actually merge
