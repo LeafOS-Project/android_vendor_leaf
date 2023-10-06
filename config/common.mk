@@ -50,7 +50,7 @@ PRODUCT_PACKAGES += \
 # Customization
 PRODUCT_PACKAGES += \
     LeafBackgrounds \
-    ThemePicker \
+    ThemePickerLeaf \
     DefaultThemesStub
 
 # Dex preopt
