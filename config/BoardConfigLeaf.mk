@@ -14,7 +14,7 @@
 
 include vendor/leaf/config/BoardConfigKernel.mk
 ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
-include vendor/leaf/config/BoardConfigQcom.mk
+include hardware/qcom-caf/common/BoardConfigQcom.mk
 endif
 include vendor/leaf/config/BoardConfigSoong.mk
 include vendor/leaf/config/BoardConfigVersion.mk

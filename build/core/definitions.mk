@@ -7,6 +7,3 @@ endef
 
 # Include board/platform macros
 include vendor/leaf/build/core/utils.mk
-
-# Include vendor platform definitions
-include vendor/leaf/build/core/vendor/*.mk
