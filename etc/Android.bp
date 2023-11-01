@@ -26,3 +26,10 @@ prebuilt_etc {
     src: ":gen_hosts.adblock",
     system_ext_specific: true,
 }
+
+prebuilt_etc_xml {
+    name: "sensitive_pn.xml",
+    product_specific: true,
+    src: "sensitive_pn.xml",
+    schema: ":spn-schema",
+}

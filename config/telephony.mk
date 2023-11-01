@@ -12,6 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Sensitive Phone Numbers list
+PRODUCT_PACKAGES += \
+    sensitive_pn.xml
+
 # Telephony packages
 PRODUCT_PACKAGES += \
     messaging \
