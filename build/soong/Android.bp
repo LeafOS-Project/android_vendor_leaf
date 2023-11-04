@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2022 The LeafOS Project
+// Copyright (C) 2022-2024 The LeafOS Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -249,6 +249,30 @@ gralloc_handle_ubwcp_format {
     soong_config_variables: {
         gralloc_handle_has_ubwcp_format: {
             export_cflags: ["-DGRALLOC_HANDLE_HAS_UBWCP_FORMAT"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "qti_vibrator_hal",
+    module_type: "cc_defaults",
+    config_namespace: "leafQcomVars",
+    bool_variables: ["qti_vibrator_use_effect_stream"],
+    value_variables: ["qti_vibrator_effect_lib"],
+    properties: [
+        "cppflags",
+        "shared_libs",
+    ],
+}
+
+qti_vibrator_hal {
+    name: "qti_vibrator_hal_defaults",
+    soong_config_variables: {
+        qti_vibrator_use_effect_stream: {
+            cppflags: ["-DUSE_EFFECT_STREAM"],
+        },
+        qti_vibrator_effect_lib: {
+            shared_libs: ["%s"],
         },
     },
 }
