@@ -217,6 +217,7 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--check-picked', type=int, default=10,
                         metavar='', help='pass the amount of commits to check for already picked changes')
     parser.add_argument('-C', '--checkout', action='store_true', help='checkout to specified changes')
+    parser.add_argument('--hard', dest='checkout_hard', action='store_true', help='perform a hard checkout')
     parser.add_argument('--chain', action='store_true', help='checkout to the top change from a chain')
     args = parser.parse_args()
     if not args.start_branch and args.abandon_first:
@@ -433,28 +434,29 @@ if __name__ == '__main__':
         if branch_commits_count <= check_picked_count:
             check_picked_count = branch_commits_count - 1
 
-        # Check if change is already picked to HEAD...HEAD~check_picked_count
-        found_change = False
-        for i in range(0, check_picked_count):
-            if subprocess.call(['git', 'cat-file', '-e', 'HEAD~{0}'.format(i)], cwd=project_path, stderr=open(os.devnull, 'wb')):
-                continue
-            output = subprocess.check_output(['git', 'show', '-q', 'HEAD~{0}'.format(i)], cwd=project_path)
-            # make sure we have a string on Python 3
-            if isinstance(output, bytes):
-                output = output.decode('utf-8')
-            output = output.split()
-            if 'Change-Id:' in output:
-                head_change_id = ''
-                for j, t in enumerate(reversed(output)):
-                    if t == 'Change-Id:':
-                        head_change_id = output[len(output) - j]
+        if not args.checkout_hard:
+            # Check if change is already picked to HEAD...HEAD~check_picked_count
+            found_change = False
+            for i in range(0, check_picked_count):
+                if subprocess.call(['git', 'cat-file', '-e', 'HEAD~{0}'.format(i)], cwd=project_path, stderr=open(os.devnull, 'wb')):
+                    continue
+                output = subprocess.check_output(['git', 'show', '-q', 'HEAD~{0}'.format(i)], cwd=project_path)
+                # make sure we have a string on Python 3
+                if isinstance(output, bytes):
+                    output = output.decode('utf-8')
+                output = output.split()
+                if 'Change-Id:' in output:
+                    head_change_id = ''
+                    for j, t in enumerate(reversed(output)):
+                        if t == 'Change-Id:':
+                            head_change_id = output[len(output) - j]
+                            break
+                    if head_change_id.strip() == item['change_id']:
+                        print('Skipping {0} - already picked in {1} as HEAD~{2}'.format(item['id'], project_path, i))
+                        found_change = True
                         break
-                if head_change_id.strip() == item['change_id']:
-                    print('Skipping {0} - already picked in {1} as HEAD~{2}'.format(item['id'], project_path, i))
-                    found_change = True
-                    break
-        if found_change:
-            continue
+            if found_change:
+                continue
 
         # Print out some useful info
         if not args.quiet:
