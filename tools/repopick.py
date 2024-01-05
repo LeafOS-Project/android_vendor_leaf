@@ -219,6 +219,7 @@ if __name__ == '__main__':
     parser.add_argument('-C', '--checkout', action='store_true', help='checkout to specified changes')
     parser.add_argument('--hard', dest='checkout_hard', action='store_true', help='perform a hard checkout')
     parser.add_argument('--chain', action='store_true', help='checkout to the top change from a chain')
+    parser.add_argument('--depth', type=int, help='limit fetching to the specified number of commits from the tip of each remote branch history.')
     args = parser.parse_args()
     if not args.start_branch and args.abandon_first:
         parser.error('if --abandon-first is set, you must also give the branch name with --start-branch')
@@ -478,6 +479,8 @@ if __name__ == '__main__':
                 cmd = ['git pull --no-edit leaf', item['fetch'][method]['ref']]
             else:
                 cmd = ['git fetch leaf', item['fetch'][method]['ref']]
+            if args.depth:
+                cmd.append(f'--depth {args.depth}')
             if args.quiet:
                 cmd.append('--quiet')
             else:
@@ -500,6 +503,8 @@ if __name__ == '__main__':
                 cmd = ['git pull --no-edit', item['fetch'][method]['url'], item['fetch'][method]['ref']]
             else:
                 cmd = ['git fetch', item['fetch'][method]['url'], item['fetch'][method]['ref']]
+            if args.depth:
+                cmd.append(f'--depth {args.depth}')
             if args.quiet:
                 cmd.append('--quiet')
             else:
