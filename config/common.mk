@@ -25,7 +25,8 @@ PRODUCT_COPY_FILES += \
 # Apps
 PRODUCT_PACKAGES += \
     Etar \
-    ExactCalculator
+    ExactCalculator \
+    Glimpse
 
 # Bootanimation
 TARGET_SCREEN_WIDTH ?= 1080
