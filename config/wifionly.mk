@@ -1,4 +1,4 @@
-# Copyright (C) 2022-2024 The LeafOS Project
+# Copyright (C) 2024 The LeafOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,5 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, vendor/leaf/config/common_full.mk)
-$(call inherit-product, vendor/leaf/config/wifionly.mk)
+# Apps
+PRODUCT_PACKAGES += \
+    EmergencyInfo
+
+PRODUCT_PACKAGE_OVERLAYS += vendor/leaf/overlay/wifionly
