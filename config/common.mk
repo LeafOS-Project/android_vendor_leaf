@@ -98,6 +98,11 @@ PRODUCT_PACKAGE_OVERLAYS += \
 PRODUCT_PACKAGES += \
     NetworkStackOverlay
 
+# SetupWizard
+PRODUCT_PRODUCT_PROPERTIES += \
+    setupwizard.theme=glif_v4 \
+    setupwizard.feature.day_night_mode_enabled=true
+
 # Translations
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/crowdin/overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/crowdin/overlay
