@@ -34,18 +34,25 @@ def load_devices(leaf_devices):
         return yaml.safe_load(f)
 
 def get_device_info(devices, args):
+    repositories = []
+    family = None
+
     if args.list:
         for item in devices:
-            for device in item["device"]:
-                print(device)
+            if 'device' in item:
+                for device in item["device"]:
+                    print(device)
         return None, None
 
     for item in devices:
-        if args.target_device in item["device"]:
-            return item["repositories"], item["family"]
+        if "device" in item and "repositories" in item and args.target_device in item["device"]:
+            family = item.get("family")
+            repositories.extend(repo for repo_list in item["repositories"] if isinstance(repo_list, list) for repo in repo_list)
 
-    print("Device not found")
-    return None, None
+    if family is None:
+        print(f"Device {args.target_device} not found")
+
+    return repositories, family
 
 def repo_is_in_manifest(local_manifests, repo_path):
     for path in glob.glob(f"{local_manifests}/*.xml"):
