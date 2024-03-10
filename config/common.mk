@@ -1,4 +1,4 @@
-# Copyright (C) 2022-2023 The LeafOS Project
+# Copyright (C) 2022-2024 The LeafOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,9 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 
 # Adblock
 PRODUCT_PACKAGES += \
-    hosts.adblock
+    hosts.adblock \
+    hosts.adblock_symlink \
+    hosts.default
 
 PRODUCT_COPY_FILES += \
     vendor/leaf/etc/init/init.adblock.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.adblock.rc
