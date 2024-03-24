@@ -1,4 +1,4 @@
-# Copyright (C) 2022-2023 The LeafOS Project
+# Copyright (C) 2022-2024 The LeafOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/sdk_phone_x86_64.mk)
+$(call inherit-product, device/generic/goldfish/64bitonly/product/sdk_phone64_x86_64.mk)
 $(call inherit-product, vendor/leaf/build/target/product/leaf_generic_target.mk)
 
 ## SDK addon
