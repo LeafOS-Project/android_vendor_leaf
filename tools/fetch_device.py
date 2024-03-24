@@ -47,7 +47,11 @@ def get_device_info(devices, args):
     for item in devices:
         if "device" in item and "repositories" in item and args.target_device in item["device"]:
             family = item.get("family")
-            repositories.extend(repo for repo_list in item["repositories"] if isinstance(repo_list, list) for repo in repo_list)
+            for repo_list in item["repositories"]:
+                if isinstance(repo_list, list):
+                    repositories.extend(repo_list)
+                else:
+                    repositories.append(repo_list)
 
     if family is None:
         print(f"Device {args.target_device} not found")
