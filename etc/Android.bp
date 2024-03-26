@@ -28,13 +28,13 @@ prebuilt_etc {
 }
 
 install_symlink {
-    name: "hosts_adblock_symlink",
+    name: "hosts.adblock_symlink",
     installed_location: "etc/hosts",
-    symlink_target: "hosts.adblock",
+    symlink_target: "hosts.real",
 }
 
 prebuilt_etc {
-   name: "hosts.default",
+   name: "hosts.real",
    src: "hosts",
 }
 
