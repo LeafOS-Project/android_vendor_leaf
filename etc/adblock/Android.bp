@@ -14,9 +14,26 @@
  * limitations under the License.
  */
 
-prebuilt_etc_xml {
-    name: "sensitive_pn.xml",
-    product_specific: true,
-    src: "sensitive_pn.xml",
-    schema: ":spn-schema",
+genrule {
+    name: "gen_hosts.adblock",
+    srcs: ["hosts", "hosts.adblock.in"],
+    out: ["hosts.adblock"],
+    cmd: "cat $(in) > $(out)"
+}
+
+prebuilt_etc {
+    name: "hosts.adblock",
+    src: ":gen_hosts.adblock",
+    system_ext_specific: true,
+}
+
+install_symlink {
+    name: "hosts.adblock_symlink",
+    installed_location: "etc/hosts",
+    symlink_target: "hosts.real",
+}
+
+prebuilt_etc {
+   name: "hosts.real",
+   src: "hosts",
 }
