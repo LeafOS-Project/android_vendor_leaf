@@ -1,4 +1,4 @@
-# Copyright (C) 2023 The LeafOS Project
+# Copyright (C) 2023-2024 The LeafOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,3 +15,13 @@
 include vendor/leaf/build/core/definitions.mk
 include vendor/leaf/build/core/pathmap.mk
 include vendor/leaf/build/core/qcom_target.mk
+
+# Require all requested packages to exist
+PRODUCT_ENFORCE_PACKAGES_EXIST := true
+PRODUCT_ENFORCE_PACKAGES_EXIST_ALLOW_LIST := \
+    product_manifest.xml \
+    webview \
+    Browser2 \
+    Calendar \
+    Gallery2 \
+    QuickSearchBox
