@@ -1,4 +1,4 @@
-# Copyright (C) 2022 The LeafOS Project
+# Copyright (C) 2022-2024 The LeafOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -24,5 +24,3 @@ ADDITIONAL_PRODUCT_PROPERTIES += \
 # LeafOS Platform Display Version
 ADDITIONAL_PRODUCT_PROPERTIES += \
     ro.leaf.display.version=$(LEAF_DISPLAY_VERSION)
-
-include vendor/leaf/build/core/config.mk

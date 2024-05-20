@@ -12,7 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include vendor/leaf/config/BoardConfigLeaf.mk
 include vendor/leaf/build/core/definitions.mk
+include vendor/leaf/build/core/main.mk
 include vendor/leaf/build/core/pathmap.mk
 include vendor/leaf/build/core/qcom_target.mk
 
