@@ -56,6 +56,12 @@ leaf_generator {
     ],
 }
 
+genrule_defaults {
+    name: "7z_genrule_defaults",
+    tools: ["7z"],
+    cmd: "$(location 7z) e -so $$(echo $(in) | cut -f1 -d ' ') > $(out)",
+}
+
 cc_library_headers {
     name: "generated_kernel_headers",
     generated_headers: ["generated_kernel_includes"],
