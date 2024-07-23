@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2023 The LeafOS Project
+# Copyright (C) 2023-2024 The LeafOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,4 +14,4 @@
 # limitations under the License.
 #
 
-include $(SRC_TARGET_DIR)/board/emulator_x86_64/BoardConfig.mk
+include device/generic/goldfish/board/emu64x/BoardConfig.mk

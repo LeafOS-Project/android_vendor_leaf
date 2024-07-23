@@ -1,4 +1,4 @@
-# Copyright (C) 2022 The LeafOS Project
+# Copyright (C) 2022-2024 The LeafOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,12 +14,12 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/leaf_gsi_arm64.mk \
-    $(LOCAL_DIR)/leaf_sdk_phone_x86_64.mk
+    $(LOCAL_DIR)/leaf_sdk_phone64_x86_64.mk
 
 COMMON_LUNCH_CHOICES := \
     leaf_gsi_arm64-eng \
     leaf_gsi_arm64-user \
     leaf_gsi_arm64-userdebug \
-    leaf_sdk_phone_x86_64-eng \
-    leaf_sdk_phone_x86_64-user \
-    leaf_sdk_phone_x86_64-userdebug
+    leaf_sdk_phone64_x86_64-eng \
+    leaf_sdk_phone64_x86_64-user \
+    leaf_sdk_phone64_x86_64-userdebug
