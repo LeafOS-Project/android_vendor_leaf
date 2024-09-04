@@ -34,6 +34,11 @@ install_symlink {
 }
 
 prebuilt_etc {
-   name: "hosts.real",
+   name: "etc_hosts",
    src: "hosts",
+   filename: "hosts.real",
+   required: [
+       "hosts.adblock",
+       "hosts.adblock_symlink",
+   ],
 }
