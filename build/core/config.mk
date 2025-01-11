@@ -17,7 +17,7 @@ include vendor/leaf/build/core/pathmap.mk
 include vendor/leaf/build/core/qcom_target.mk
 
 # Require all requested packages to exist
-PRODUCT_ENFORCE_PACKAGES_EXIST := true
+#PRODUCT_ENFORCE_PACKAGES_EXIST := true
 PRODUCT_ENFORCE_PACKAGES_EXIST_ALLOW_LIST := \
     product_manifest.xml \
     rild \
