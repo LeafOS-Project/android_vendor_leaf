@@ -1,4 +1,4 @@
-# Copyright (C) 2022-2024 The LeafOS Project
+# Copyright (C) 2022-2025 The LeafOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,7 +13,8 @@
 # limitations under the License.
 
 PRODUCT_VERSION_MAJOR := 4
-PRODUCT_VERSION_MINOR := 0
+PRODUCT_VERSION_MINOR := 1
+LEAF_CODENAME := Angraecum sesquipedale
 
 ifeq ($(LEAF_VERSION_APPEND_TIME_OF_DAY),true)
     LEAF_BUILD_DATE := $(shell date -u +%Y%m%d_%H%M%S)
