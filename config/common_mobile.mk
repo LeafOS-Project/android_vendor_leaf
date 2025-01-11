@@ -19,7 +19,7 @@ PRODUCT_PACKAGES += \
     Aperture
 
 # Customizations
-$(call inherit-product, packages/overlays/Leaf/customizations.mk)
+#$(call inherit-product, packages/overlays/Leaf/customizations.mk)
 
 # SystemUI plugins
 PRODUCT_PACKAGES += \
