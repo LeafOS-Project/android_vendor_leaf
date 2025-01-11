@@ -1,4 +1,4 @@
-# Copyright (C) 2024 The LeafOS Project
+# Copyright (C) 2024-2025 The LeafOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
 # LeafOS System Version
 ADDITIONAL_PRODUCT_PROPERTIES += \
     ro.leaf.version=$(LEAF_VERSION) \
+    ro.leaf.codename=$(subst $(space),_,$(LEAF_CODENAME)) \
     ro.leaf.releasetype=$(LEAF_BUILDTYPE) \
     ro.leaf.flavor=$(LEAF_FLAVOR) \
     ro.leaf.build.date=$(LEAF_BUILD_DATE) \
