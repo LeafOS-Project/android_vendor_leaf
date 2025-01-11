@@ -1,4 +1,4 @@
-# Copyright (C) 2022-2024 The LeafOS Project
+# Copyright (C) 2022-2025 The LeafOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,6 +11,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+include vendor/leaf/config/version.mk
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/window_extensions.mk)
 $(call inherit-product-if-exists, vendor/extra/product.mk)
