@@ -46,3 +46,17 @@ LEAF_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)
 
 # Display version
 LEAF_DISPLAY_VERSION := $(LEAF_VERSION)-$(LEAF_BUILDTYPE)-$(LEAF_FLAVOR)-$(TARGET_DEVICE)
+
+# LeafOS System Version
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.leaf.version=$(LEAF_VERSION) \
+    ro.leaf.codename=$(LEAF_CODENAME) \
+    ro.leaf.releasetype=$(LEAF_BUILDTYPE) \
+    ro.leaf.flavor=$(LEAF_FLAVOR) \
+    ro.leaf.build.date=$(LEAF_BUILD_DATE) \
+    ro.leaf.build.version=$(LEAF_VERSION) \
+    ro.modversion=$(LEAF_VERSION)
+
+# LeafOS Platform Display Version
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.leaf.display.version=$(LEAF_DISPLAY_VERSION)
