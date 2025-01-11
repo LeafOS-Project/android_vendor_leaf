@@ -1,4 +1,4 @@
-# Copyright (C) 2024-2025 The LeafOS Project
+# Copyright (C) 2022-2025 The LeafOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,8 +12,43 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+PRODUCT_VERSION_MAJOR := 4
+PRODUCT_VERSION_MINOR := 1
+LEAF_CODENAME := Angraecum sesquipedale
+
+ifeq ($(LEAF_VERSION_APPEND_TIME_OF_DAY),true)
+    LEAF_BUILD_DATE := $(shell date -u +%Y%m%d_%H%M%S)
+else
+    LEAF_BUILD_DATE := $(shell date -u +%Y%m%d)
+endif
+
+# If unset set LEAF_BUILDTYPE to the env variable RELEASE_TYPE, or
+# if that doesn't exist to "UNOFFICIAL"
+ifndef LEAF_BUILDTYPE
+    ifdef RELEASE_TYPE
+        LEAF_BUILDTYPE := $(RELEASE_TYPE)
+    else
+        LEAF_BUILDTYPE := UNOFFICIAL
+    endif
+endif
+
+LEAF_FLAVOR ?= VANILLA
+
+ifeq ($(WITH_GMS), true)
+LEAF_FLAVOR := GMS
+endif
+ifeq ($(WITH_MICROG), true)
+LEAF_FLAVOR := microG
+endif
+
+# Internal version
+LEAF_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)
+
+# Display version
+LEAF_DISPLAY_VERSION := $(LEAF_VERSION)-$(LEAF_BUILDTYPE)-$(LEAF_FLAVOR)-$(TARGET_DEVICE)
+
 # LeafOS System Version
-ADDITIONAL_PRODUCT_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     ro.leaf.version=$(LEAF_VERSION) \
     ro.leaf.codename=$(subst $(space),_,$(LEAF_CODENAME)) \
     ro.leaf.releasetype=$(LEAF_BUILDTYPE) \
@@ -23,5 +58,5 @@ ADDITIONAL_PRODUCT_PROPERTIES += \
     ro.modversion=$(LEAF_VERSION)
 
 # LeafOS Platform Display Version
-ADDITIONAL_PRODUCT_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     ro.leaf.display.version=$(LEAF_DISPLAY_VERSION)

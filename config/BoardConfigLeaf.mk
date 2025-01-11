@@ -1,4 +1,4 @@
-# Copyright (C) 2022 The LeafOS Project
+# Copyright (C) 2022-2025 The LeafOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@ ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
 include hardware/qcom-caf/common/BoardConfigQcom.mk
 endif
 include vendor/leaf/config/BoardConfigSoong.mk
-include vendor/leaf/config/BoardConfigVersion.mk
 -include vendor/extra/BoardConfigExtra.mk
 
 include device/leaf/sepolicy/common/sepolicy.mk
