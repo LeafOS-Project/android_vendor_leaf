@@ -1,4 +1,4 @@
-# Copyright (C) 2022 The LeafOS Project
+# Copyright (C) 2022-2025 The LeafOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LEAF_TARGET_PACKAGE := $(PRODUCT_OUT)/leaf-$(LEAF_VERSION)-$(LEAF_BUILD_DATE)-$(LEAF_BUILDTYPE)-$(LEAF_FLAVOR)-$(TARGET_DEVICE).zip
+LEAF_TARGET_PACKAGE := $(PRODUCT_OUT)/leaf-$(LEAF_VERSION)-$(LEAF_BUILD_DATE)-$(LEAF_BUILDTYPE)-$(LEAF_FLAVOR)-$(LEAF_BUILD).zip
 
 SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
 
