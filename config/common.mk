@@ -16,6 +16,7 @@ include vendor/leaf/config/version.mk
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/window_extensions.mk)
 $(call inherit-product-if-exists, vendor/extra/product.mk)
+$(call inherit-product, vendor/leaf/config/lineage_sdk_common.mk)
 
 # Adblock
 PRODUCT_COPY_FILES += \
@@ -87,6 +88,10 @@ PRODUCT_PACKAGES += \
     LeafSetupWizard \
     Seedvault \
     Updater
+
+# Lineage-specific broadcast actions whitelist
+PRODUCT_COPY_FILES += \
+    vendor/lineage/config/permissions/lineage-sysconfig.xml:system/etc/sysconfig/lineage-sysconfig.xml
 
 # OTA
 PRODUCT_EXTRA_RECOVERY_KEYS += \
