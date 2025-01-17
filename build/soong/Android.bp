@@ -56,6 +56,22 @@ leaf_generator {
     ],
 }
 
+bootstrap_go_package {
+    name: "soong-lineage-mkdir",
+    pkgPath: "leaf/soong/mkdir",
+    deps: [
+        "blueprint",
+        "blueprint-pathtools",
+        "soong",
+        "soong-android",
+    ],
+    srcs: [
+        "mkdir/init.go",
+        "mkdir/mkdir.go",
+    ],
+    pluginFor: ["soong_build"],
+}
+
 genrule_defaults {
     name: "7z_genrule_defaults",
     tools: ["7z"],
