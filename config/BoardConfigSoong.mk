@@ -118,10 +118,5 @@ SOONG_CONFIG_leafQcomVars_qcom_display_headers_namespace := vendor/qcom/opensour
 else
 SOONG_CONFIG_leafQcomVars_qcom_display_headers_namespace := $(QCOM_SOONG_NAMESPACE)/display
 
-# Recovery
-ifneq ($(BOOTLOADER_MESSAGE_OFFSET),)
-    $(call soong_config_set,lineage_recovery,bootloader_message_offset,$(BOOTLOADER_MESSAGE_OFFSET))
-endif
-
 endif
 SOONG_CONFIG_leafQcomVars_qti_vibrator_effect_lib := $(TARGET_QTI_VIBRATOR_EFFECT_LIB)
