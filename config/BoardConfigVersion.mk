@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_VERSION_MAJOR := 3
-PRODUCT_VERSION_MINOR := 2
+PRODUCT_VERSION_MAJOR := 5
+PRODUCT_VERSION_MINOR := 0
 
 ifeq ($(LEAF_VERSION_APPEND_TIME_OF_DAY),true)
     LEAF_BUILD_DATE := $(shell date -u +%Y%m%d_%H%M%S)
