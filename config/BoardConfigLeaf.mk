@@ -17,7 +17,6 @@ ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
 include hardware/qcom-caf/common/BoardConfigQcom.mk
 endif
 include vendor/leaf/config/BoardConfigSoong.mk
-include vendor/leaf/config/BoardConfigVersion.mk
 -include vendor/extra/BoardConfigExtra.mk
 
 include device/leaf/sepolicy/common/sepolicy.mk
